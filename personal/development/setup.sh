@@ -39,6 +39,8 @@ install_softwares() {
     curl -o ~/Downloads/wps-office.deb https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11708/wps-office_11.1.0.11708.XA_amd64.deb
 
     sudo apt-get install -y ~/Downloads/wps-office.deb
+
+    sudo rm -rf ~/Downloads/wps-office.deb
 }
 
 setup_asdf() {
@@ -68,19 +70,22 @@ install_flutter() {
 
     curl -o ~/Downloads/commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
     unzip ~/Downloads/commandlinetools.zip -d ~/
+    sudo rm -rf ~/Downloads/commandlinetools.zip
 
     $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$HOME "platforms;android-30" \
                                                                 "platform-tools" \
                                                                 "build-tools;30.0.3" \
                                                                 "emulator" \
-                                                                "system-images;android-30;google_apis_playstore;x86_64"
+                                                                "system-images;android-30;google_apis_playstore;x86_64" \
+                                                                "cmdline-tools;latest"
     
-    $ANDROID_HOME/cmdline-tools/bin/sdkmanager --licenses
-
     flutter config --android-sdk $HOME
 
-    avdmanager create avd -n android-30 \
-                          -k "system-images;android-30;google_apis_playstore;x86_64"
+    avdmanager -s create avd -n android-30 \
+                             -k "system-images;android-30;google_apis_playstore;x86_64"
+
+    yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$HOME \
+                                                     --licenses
 }
 
 install_golang() {
