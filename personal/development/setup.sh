@@ -36,9 +36,9 @@ install_softwares() {
     sudo snap install --classic code \
                                 intellij-idea-community
 
-    curl -o wps-office.deb https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11708/wps-office_11.1.0.11708.XA_amd64.deb
+    curl -o ~/Downloads/wps-office.deb https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11708/wps-office_11.1.0.11708.XA_amd64.deb
 
-    sudo apt-get install -y ./wps-office.deb
+    sudo apt-get install -y ~/Downloads/wps-office.deb
 }
 
 setup_asdf() {
@@ -66,8 +66,8 @@ install_flutter() {
 
     echo -e "export CHROME_EXECUTABLE=/snap/bin/chromium\nexport ANDROID_HOME=\$HOME\nexport ANDROID_SDK_ROOT=\$HOME\nexport PATH=\$ANDROID_HOME/cmdline-tools:\$ANDROID_HOME/cmdline-tools/bin:\$ANDROID_HOME/platform-tools:\$ANDROID_HOME/platform-tools/bin:\$ANDROID_SDK_ROOT:\$PATH" >> ~/.bashrc
 
-    curl -o commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
-    unzip commandlinetools.zip -d ~/
+    curl -o ~/Downloads/commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+    unzip ~/Downloads/commandlinetools.zip -d ~/
 
     $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$HOME "platforms;android-30" \
                                                                 "platform-tools" \
