@@ -19,7 +19,9 @@ install_pkgs() {
                             libgtk-3-dev /
                             jq /
                             zip /
-                            unzip
+                            unzip /
+                            pkg-config /
+                            liblzma-dev
 }
 
 install_softwares() {
