@@ -33,8 +33,8 @@ install_softwares() {
                       chromium \
                       thunderbird
 
-    sudo snap install --classic code \
-                                intellij-idea-community
+    sudo snap install --classic code
+    sudo snap install --classic intellij-idea-community
 
     curl -o ~/Downloads/wps-office.deb https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11708/wps-office_11.1.0.11708.XA_amd64.deb
 
@@ -78,7 +78,7 @@ install_flutter() {
                                                                 "emulator" \
                                                                 "system-images;android-30;google_apis_playstore;x86_64" \
                                                                 "cmdline-tools;latest"
-    
+
     flutter config --android-sdk $HOME
 
     avdmanager -s create avd -n android-30 \
@@ -125,7 +125,7 @@ install_rust() {
 }
 
 setup_airpods() {
-    sudo sed -i.bak 's/#ControllerMode = dual/ControllerMode = bredr/' "/etc/bluetooth/main.conf"
+    sudo sed -i.bak 's/#ControllerMode = dual/#ControllerMode = bredr/' "/etc/bluetooth/main.conf"
     sudo /etc/init.d/bluetooth restart
 }
 
