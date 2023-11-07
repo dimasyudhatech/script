@@ -11,16 +11,16 @@ PYTHON_VERSION=''
 RUST_VERSION=''
 
 install_pkgs() {
-    sudo apt-get install -y curl /
-                            git /
-                            clang /
-                            cmake /
-                            ninja-build /
-                            libgtk-3-dev /
-                            jq /
-                            zip /
-                            unzip /
-                            pkg-config /
+    sudo apt-get install -y curl \
+                            git \
+                            clang \
+                            cmake \
+                            ninja-build \
+                            libgtk-3-dev \
+                            jq \
+                            zip \
+                            unzip \
+                            pkg-config \
                             liblzma-dev
 }
 
