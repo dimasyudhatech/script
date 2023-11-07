@@ -119,4 +119,13 @@ install_rust() {
     asdf global rust $RUST_VERSION
 }
 
+setup_airpods() {
+    sudo sed -i.bak 's/#ControllerMode = dual/ControllerMode = bredr/' "/etc/bluetooth/main.conf"
+    sudo /etc/init.d/bluetooth restart
+}
+
+uninstall_bloatwares() {
+    sudo snap uninstall --purge firefox
+}
+
 # Main script starts here
