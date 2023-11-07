@@ -47,13 +47,13 @@ setup_asdf() {
 }
 
 install_bun() {
-    asdf plugin bun https://github.com/cometkim/asdf-bun.git
+    asdf plugin add bun https://github.com/cometkim/asdf-bun.git
     asdf install bun $BUN_VERSION
     asdf global bun $BUN_VERSION
 }
 
 install_flutter() {
-    asdf plugin flutter https://github.com/oae/asdf-flutter.git
+    asdf plugin add flutter https://github.com/oae/asdf-flutter.git
     asdf install flutter $FLUTTER_VERSION
     asdf global flutter $FLUTTER_VERSION
 
@@ -102,19 +102,19 @@ install_kotlin() {
 }
 
 install_nodejs() {
-    asdf plugin nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
     asdf install nodejs $NODEJS_VERSION
     asdf global nodejs $NODEJS_VERSION
 }
 
 install_python() {
-    asdf plugin python https://github.com/danhper/asdf-python.git
+    asdf plugin add python https://github.com/danhper/asdf-python.git
     asdf install python $PYTHON_VERSION
     asdf global python $PYTHON_VERSION
 }
 
 install_rust() {
-    asdf plugin rust https://github.com/code-lever/asdf-rust.git
+    asdf plugin add rust https://github.com/code-lever/asdf-rust.git
     asdf install rust $RUST_VERSION
     asdf global rust $RUST_VERSION
 }
