@@ -30,7 +30,8 @@ install_softwares() {
                       figma-linux \
                       zoom-client\
                       remmina \
-                      chromium
+                      chromium \
+                      thunderbird
 
     sudo snap install --classic code \
                                 intellij-idea-community
