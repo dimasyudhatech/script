@@ -21,7 +21,9 @@ install_pkgs() {
                             zip \
                             unzip \
                             pkg-config \
-                            liblzma-dev
+                            liblzma-dev \
+                            ca-certificates \
+                            gnupg
 }
 
 install_softwares() {
@@ -36,11 +38,20 @@ install_softwares() {
     sudo snap install --classic code
     sudo snap install --classic intellij-idea-community
 
+    # WPS
     curl -o ~/Downloads/wps-office.deb https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11708/wps-office_11.1.0.11708.XA_amd64.deb
-
     sudo apt-get install -y ~/Downloads/wps-office.deb
-
     sudo rm -rf ~/Downloads/wps-office.deb
+
+    # Docker Desktop
+    curl -o ~/Downloads/docker-desktop.deb https://desktop.docker.com/linux/main/amd64/docker-desktop-4.25.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64&_gl=1*1aaucwq*_ga*MTk3MTMxMTQyNy4xNjk5NDIxMDYz*_ga_XJWPQMJYHQ*MTY5OTQyMTA2My4xLjEuMTY5OTQyMTcwNy40NS4wLjA.
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install -y ~/Downloads/docker-desktop.deb
+    sudo systemctl --user enable docker-desktop
 }
 
 setup_asdf() {
