@@ -44,7 +44,7 @@ install_softwares() {
     sudo rm -rf ~/Downloads/wps-office.deb
 
     # Docker Desktop
-    curl -o ~/Downloads/docker-desktop.deb https://desktop.docker.com/linux/main/amd64/docker-desktop-4.25.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64&_gl=1*1aaucwq*_ga*MTk3MTMxMTQyNy4xNjk5NDIxMDYz*_ga_XJWPQMJYHQ*MTY5OTQyMTA2My4xLjEuMTY5OTQyMTcwNy40NS4wLjA.
+    curl -o ~/Downloads/docker-desktop.deb https://desktop.docker.com/linux/main/amd64/docker-desktop-4.25.0-amd64.deb
     sudo install -m 0755 -d /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
